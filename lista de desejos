@@ -1,0 +1,52 @@
+class ListaDesejos:
+    def __init__(self):
+        self.itens = []
+
+    def inserir_item(self, item):
+        self.itens.append(item)
+        print(f"Item '{item}' inserido na lista de desejos.")
+
+    def remover_item(self, item):
+        if item in self.itens:
+            self.itens.remove(item)
+            print(f"Item '{item}' removido da lista de desejos.")
+        else:
+            print(f"Item '{item}' não encontrado na lista de desejos.")
+
+    def mostrar_itens(self):
+        if self.itens:
+            print("Itens da lista de desejos:")
+            for item in self.itens:
+                print(item)
+        else:
+            print("A lista de desejos está vazia.")
+
+# Função para interagir com o usuário
+def menu_interativo():
+    lista_desejos = ListaDesejos()
+
+    while True:
+        print("\nMenu:")
+        print("1 - Inserir item na lista de desejos")
+        print("2 - Remover item da lista de desejos")
+        print("3 - Mostrar itens da lista de desejos")
+        print("4 - Sair")
+
+        escolha = input("Escolha uma opção: ")
+
+        if escolha == "1":
+            item = input("\nDigite o item que deseja inserir: ")
+            lista_desejos.inserir_item(item)
+        elif escolha == "2":
+            item = input("\nDigite o item que deseja remover: ")
+            lista_desejos.remover_item(item)
+        elif escolha == "3":
+            lista_desejos.mostrar_itens()
+        elif escolha == "4":
+            print("\nSaindo do programa...")
+            break
+        else:
+            print("\nOpção inválida. Tente novamente.")
+
+# Executa o menu interativo
+menu_interativo()
